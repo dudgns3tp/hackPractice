@@ -7,12 +7,25 @@
 var app = require('../app');
 var debug = require('debug')('hackpractice:server');
 var http = require('http');
+var mongoose = require('mongoose');
 const webSocket = require('../module/socket');
+mongoose.set('useCreateIndex',true);
+mongoose.set('useFIndAndModify', false);
+const mongoosePW = require("../config/mongoDB.json")
 
 
 /**
  * Get port from environment and store in Express.
  */
+
+let db = mongoose.connection;
+db.on('error',console.error);
+db.once('open',function(){
+  console.log("Connected to mongod server");
+});
+/*   디비 연결해주세요!
+mongoose.connect('mongodb')
+*/
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);

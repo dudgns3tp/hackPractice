@@ -2,7 +2,6 @@ const socketIO = require('socket.io');
 module.exports = async(server, app)=>{
     let room = ['room1', 'room2','room3'];
     let a =0;
-    const user = "cyh";
     const io = socketIO(server);
     app.set('io', io);
     console.log('소켓통신 연결')
