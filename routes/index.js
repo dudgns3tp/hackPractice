@@ -7,5 +7,4 @@ router.get('/', (req,res)=> {
 });
 
 router.use('/user',require('./user'));
-router.use('/action', require('./action'));
 module.exports = router;

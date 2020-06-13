@@ -1,6 +1,20 @@
 const socketIO = require('socket.io');
-module.exports = async(server, app)=>{
-    let room = ['room1', 'room2','room3'];
+/*
+user, 학교, 강의들의 정보를 불러와야함...
+userIdx, 학교, 학과, 강의번호 
+네임스페이스 :${학교}
+룸: 강의번호
+
+이벤트 발생시키고
+
+해당 채팅 데이터 베이스에 저장... 하면 완벽하다구요.!
+
+
+*/
+
+module.exports = {
+    webSocket : async(server,app)=>{
+        let room = ['room1', 'room2','room3'];
     let a =0;
     const io = socketIO(server);
     app.set('io', io);
@@ -31,5 +45,6 @@ module.exports = async(server, app)=>{
         })
 
     })
-    
+    }
 }
+

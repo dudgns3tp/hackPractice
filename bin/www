@@ -8,9 +8,8 @@ var app = require('../app');
 var debug = require('debug')('hackpractice:server');
 var http = require('http');
 var mongoose = require('mongoose');
-const webSocket = require('../module/socket');
+const socket = require('../module/socket');
 mongoose.set('useCreateIndex',true);
-mongoose.set('useFIndAndModify', false);
 const mongoosePW = require("../config/mongoDB.json")
 
 
@@ -23,9 +22,17 @@ db.on('error',console.error);
 db.once('open',function(){
   console.log("Connected to mongod server");
 });
-/*   디비 연결해주세요!
-mongoose.connect('mongodb')
-*/
+
+mongoose.connect('mongodb://localhost/HELLODB',{
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+  useFindAndModify:true
+}, (err)=>{
+  if(err){
+    console.log(err);
+  }
+})
+
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -43,7 +50,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-webSocket(server,app);
+socket.webSocket(server,app)
 /**
  * Normalize a port into a number, string, or false.
  */
