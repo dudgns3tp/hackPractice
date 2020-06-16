@@ -3,6 +3,8 @@ var Schema = mongoose.Schema;
 
 var lectureSchema = new Schema({
     lectureName:{type: String, required : true}, //강의 명
+    universityCode:{type: String, required:true},
+    lectureCode:{type:String, unique:true, required:true}
     /*
     classTime:[{
         startTime:String,

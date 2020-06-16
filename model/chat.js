@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var chatSchema = new Schema({
-
-    chatForum:{type:String}, //수업 코드
+    univCode:{type:String, required:true},
+    chatLecture:{type:String, required:true}, //수업 코드
     chatMsg:[{
         msgSender:{type: String, require:true},
         msg:{type:String, require:true},

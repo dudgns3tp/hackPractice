@@ -51,7 +51,6 @@ module.exports = {
                     message: "이미 존재하는 이메일 입니다."
                 })
             }
-            console.log('여긴가')
         } catch (err) {
             if (err) {
                 return await res.status(500).json({
@@ -117,6 +116,7 @@ module.exports = {
         //3.비밀번호 체크
         try {
             const userData = await user.findOne({email: email});
+            console.log(userData);
             const dbPw = (await encryption.encrypt(password, userData.salt)).toString('base64');
             if (dbPw == userData.password) {
                 const token = await jwt.sign(userData);

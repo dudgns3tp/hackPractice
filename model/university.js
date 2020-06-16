@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var universitySchema = new Schema({
     universityName : {type:String, required:true, unique:true},
+    universityCode : {type:String, required:true, unique:true}
     /*
     phone:{type:String, required:true},//대표 번호
     department:[{

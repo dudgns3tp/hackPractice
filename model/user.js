@@ -8,8 +8,11 @@ let userSchema = new Schema({
     password:{type:String, required:true},
     salt :{type:String, required:true},
     phone : {type:String, required:true, unique:true},
-    universityCode:{type:mongoose.Schema.Types.ObjectId, ref:'university'},
+    universityCode:{type:String, required:true},
     profileImage:{type:String, default:null},
     registration:[{type: mongoose.Schema.Types.ObjectId, ref:'lecture'}], // 학생의 수강 목록 또는 교수의 강의 목록
+    /*
+    major
+    */
 });
 module.exports = mongoose.model('user',userSchema)

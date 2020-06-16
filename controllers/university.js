@@ -6,10 +6,11 @@ const jwt = require('../module/jwt');
 
 module.exports = {
     addUniversity: async(req,res)=>{
-        const {universityName} = req.body;
+        const {universityName,universityCode} = req.body;
 
         var universityModel = new university();
         universityModel.universityName = universityName;
+        universityModel.universityCode = universityCode;
         universityModel.save()
         .then((newUniv) =>{
             console.log(newUniv);
@@ -17,6 +18,14 @@ module.exports = {
                 message:"학교 생성 성공",
                 data:newUniv
             });
+        })
+        .catch((err)=>{
+            if(err){
+                console.log(err);
+                return res.status(500).json({
+                    message:"addUniv serverError."
+                })
+            }
         })
 
     }

@@ -21,7 +21,7 @@ module.exports = {
         if (user === undefined) {
             return res.json(util.fail(statusCode.UNAUTHORIZED, resMessage.INVALID_TOKEN));
         }
-        req.userIdx = user.idx;
+        req.decoded = user;
         next();
     }
 }
