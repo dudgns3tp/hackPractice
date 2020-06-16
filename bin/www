@@ -23,7 +23,7 @@ db.once('open',function(){
   console.log("Connected to mongod server");
 });
 
-mongoose.connect('mongodb://localhost/HELLODB',{
+mongoose.connect('mongodb://127.0.0.1/ULINK',{
   useNewUrlParser:true,
   useUnifiedTopology:true,
   useFindAndModify:true

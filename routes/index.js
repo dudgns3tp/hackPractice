@@ -7,4 +7,5 @@ router.get('/', (req,res)=> {
 });
 
 router.use('/user',require('./user'));
+router.use('/university',require('./university'));
 module.exports = router;

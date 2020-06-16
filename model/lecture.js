@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var lectureSchema = new Schema({
     lectureName:{type: String, required : true}, //강의 명
-    lectureCode:{type:String, required:true, unique:true},
+    /*
     classTime:[{
         startTime:String,
         endTime:String,
@@ -17,5 +17,6 @@ var lectureSchema = new Schema({
         reviewContent:String,
         start:Number
     }],
+    */
 })
 module.exports = mongoose.model('lecture',lectureSchema)
