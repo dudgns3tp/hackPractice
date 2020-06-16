@@ -9,9 +9,13 @@ var lectureSchema = new Schema({
         endTime:String,
         date:String,
     }],
-    buildingName:String,
-    lectureRoom:String,
-    professor:String,
-    lectureReview:[String]
+    buildingName:String, // 강의 건물 이름
+    lectureRoom:String,  // 강의실 번호
+    professor:String,  // 교수님
+    lectureReview:[{
+        writer:String,
+        reviewContent:String,
+        start:Number
+    }],
 })
 module.exports = mongoose.model('lecture',lectureSchema)
