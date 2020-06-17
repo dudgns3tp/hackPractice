@@ -10,9 +10,10 @@ let userSchema = new Schema({
     phone : {type:String, required:true, unique:true},
     universityCode:{type:String, required:true},
     profileImage:{type:String, default:null},
-    registration:[{type: mongoose.Schema.Types.ObjectId, ref:'lecture'}], // 학생의 수강 목록 또는 교수의 강의 목록
+    registration:[], // 학생의 수강 목록 또는 교수의 강의 목록
     /*
     major
+    {type: mongoose.Schema.Types.ObjectId, ref:'lecture'}
     */
 });
 module.exports = mongoose.model('user',userSchema)

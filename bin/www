@@ -26,7 +26,7 @@ db.once('open',function(){
 mongoose.connect('mongodb://127.0.0.1/ULINK',{
   useNewUrlParser:true,
   useUnifiedTopology:true,
-  useFindAndModify:true
+  useFindAndModify:false
 }, (err)=>{
   if(err){
     console.log(err);

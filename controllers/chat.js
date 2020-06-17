@@ -4,9 +4,13 @@ const chat = require('../model/chat');
 const university = require('../model/university');
 
 module.exports = {
-    groupChat: async(req,res)=>{
-        const room = req.query.lectureCode;
-        const {univCode, email} = req.decoded;
+    getChatRooms: async(req,res)=>{
+        const {universityCode, email} = req.decoded;
+        const {lectureCode} = req.params;
+
+        const room = lectureCode;
+
+        //room 에 user 입장!
 
         /*
         1.room(lectureCode) 지정
@@ -18,9 +22,7 @@ module.exports = {
 
     },
     chatInit: async (req,res) =>{
-        const {univCode, email} = req.decoded;
-        console.log(req.decoded)
-
-        return res.status(200).json({message:"test",email});
+        const {universityCode, email} = req.decoded;
+        return res.status(200).json({message:"test",email:email ,universityCode:universityCode});
     }
 }
