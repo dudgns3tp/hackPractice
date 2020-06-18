@@ -7,7 +7,6 @@ module.exports = {
     getChatRooms: async(req,res)=>{
         const {universityCode, email} = req.decoded;
         const {lectureCode} = req.params;
-
         const room = lectureCode;
 
         //room 에 user 입장!
