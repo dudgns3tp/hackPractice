@@ -9,5 +9,5 @@ router.get('/', (req,res)=> {
 router.use('/user',require('./user'));
 router.use('/university',require('./university'));
 router.use('/lecture', require('./lecture'));
-router.use('/chat',require('./chat'))
+router.use('/room',require('./room'))
 module.exports = router;
