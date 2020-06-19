@@ -1,3 +1,4 @@
+/*
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -12,3 +13,15 @@ var chatSchema = new Schema({
     }]
 })
 module.exports = mongoose.model('chat',chatSchema)
+*/
+
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var chatSchema = new Schema({
+    room:{type:String, required:true},
+    name:{type:String, required:true}, //이름
+    msg:{type:String}
+})
+module.exports = mongoose.model('chat',chatSchema)
+

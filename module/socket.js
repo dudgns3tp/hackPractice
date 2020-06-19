@@ -1,4 +1,5 @@
 const socketIO = require('socket.io');
+const chat = require('../model/chat');
 var roomName = [];
 module.exports = {
     webSocket: async (server, app) => {
@@ -26,6 +27,7 @@ module.exports = {
                 a = num;
                 console.log(name + ' s msg :' + msg+' .... socketId:',socket.id+'room Id:',socket.rooms);
                 io.to(room[a]).emit('chat-msg', name, msg)
+
             })
             
 
