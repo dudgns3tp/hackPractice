@@ -9,7 +9,8 @@ module.exports = {
     sign: async (user) => {
         const payload = {
             universityCode:user.universityCode,
-            email:user.email
+            email:user.email,
+            name:user.name
         };
         console.log(payload);
         const result = {

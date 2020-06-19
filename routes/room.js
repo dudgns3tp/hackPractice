@@ -5,5 +5,5 @@ const authUtil = require('../module/authUtil');
 
 /* GET home page. */
 router.get('/', authUtil.LoggedIn, chatControllers.chatInit);
-router.post('/:room/chat', chatControllers.chatting);
+router.post('/:room/chat',authUtil.LoggedIn, chatControllers.chatting);
 module.exports = router;

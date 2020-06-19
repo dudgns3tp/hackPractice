@@ -21,18 +21,17 @@ module.exports = {
     chatting: async (req, res, next) => {
         let room = req.params.room;
         const {
-            msg,
-            name
+            msg
         } = req.body;
-        console.log("gpgp: ",JSON.stringify(room))
+        const name = req.decoded.name;
         var chatModel = new chat();
         chatModel.room = room;
         chatModel.name = name;
         chatModel.msg = msg;
         chatModel.save()
             .then((newChat) => {
-                console.log(newChat);
                 req.app.get('io').to(room).emit('chat-msg',name, msg);
+                console.log(name + ' s msg :' + msg+' .... socketId:',socket.id+'room Id:',socket.rooms);
                 res.send('ok')
             })
             .catch((err)=>{

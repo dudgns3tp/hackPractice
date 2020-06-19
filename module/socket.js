@@ -10,7 +10,7 @@ module.exports = {
         console.log('소켓통신 연결')
         //양방향 연결
         io.on('connection', (socket) => {
-            console.log('a user connected :');
+            console.log('a user connected :',socket.id);
             
             socket.on('joinRoom', (num, name) => {
                 socket.join(room[num], () => {
